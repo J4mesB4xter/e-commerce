@@ -1,12 +1,11 @@
-# Usage: python scripts/scrape_shopify.py https://somestore.com
-from django.core.management.base import BaseCommand, CommandError
-import requests
-import sys
+
+from django.core.management.base import BaseCommand
 from myapp import models
+import requests
 
 class Command(BaseCommand):
     def add_arguments(self, parser):
-            parser.add_argument('store_url', nargs='+', type=str)
+        parser.add_argument('store_url', nargs='+', type=str)
 
     def handle(self, *args, **options):
         store_url = options['store_url'].pop()
