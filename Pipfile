@@ -11,6 +11,7 @@ django-instant-rest = { editable = true, git = "https://github.com/django-instan
 python--dateutil = "*"
 faker = "*"
 pillow = "*"
+requests = "*"
 
 [requires]
 python_version = "3"
