@@ -14,17 +14,17 @@ class Command(BaseCommand):
         foreign_products = r.json()["products"]
         
         for foreign_product in foreign_products:
-            native_product = {
-                "title": foreign_product["title"],
-                "handle": foreign_product["handle"],
-                "description": foreign_product["body_html"],
-                "collection": None,
-            }
-            
+            native_product = models.Product.objects.create(
+                title = foreign_product["title"],
+                handle = foreign_product["handle"],
+                description = foreign_product["body_html"],
+                collection = None,
+            )
+
             native_variants = []
             for variant in foreign_product["variants"]:
-                native_variant = {
-                    "title": variant["title"],
-                    "price_in_cents": int(float(variant["price"])* 100),
-                    "product": native_product,
-                }
+                native_variant = models.Variant.objects.create(
+                    title = variant["title"],
+                    price_in_cents = int(float(variant["price"])* 100),
+                    product = native_product,
+                )
