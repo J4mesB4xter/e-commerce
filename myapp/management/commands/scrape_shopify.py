@@ -20,4 +20,4 @@ class Command(BaseCommand):
         r = requests.get(products_url)
         products = r.json()["products"]
 
-        print(len(products))
+        print(products.pop())
