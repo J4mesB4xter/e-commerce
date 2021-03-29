@@ -17,7 +17,6 @@ class Product(RestResource):
 
 class Variant(RestResource):
     title = models.CharField(max_length = 255)
-    handle = models.CharField(max_length = 255, unique = True)
     price_in_cents = models.PositiveIntegerField()
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
 
