@@ -7,5 +7,5 @@ urlpatterns = [
     patterns.resource('collections.json', Collection),
     patterns.resource('products.json', Product),
     patterns.resource('variants.json', Variant),
-    path('product/', views.product_page),
+    path('product/<handle>', views.product_page),
     ]
