@@ -1,24 +1,9 @@
-
+from django.core.files import File
 from django.db import models
 from django_instant_rest.models import RestResource, RestClient
 from mysite import settings
-
-class Media(RestResource):
-    filename = models.ImageField(upload_to='media')
-
-    def download(self, url):
-        """Store image locally if we have a URL"""
-
-        if not self.filename:
-            result = urllib.urlretrieve(url)
-            self.filename.save(
-                    os.path.basename(url),
-                    File(open(result[0], 'rb'))
-                    )
-            self.save()
-
-    class Meta:
-        abstract = True
+from urllib.request import urlretrieve
+import os
 
 class Collection(RestResource):
     title = models.CharField(max_length = 255)
@@ -36,14 +21,14 @@ class Variant(RestResource):
     price_in_cents = models.PositiveIntegerField()
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
 
-class CollectionMedia(Media):
+class CollectionMedia(RestResource):
     collection = models.ForeignKey(Collection, on_delete=models.CASCADE)
-    filename = models.ImageField(upload_to='collection_media')
+    url = models.CharField(max_length = 1023)
 
-class ProductMedia(Media):
+class ProductMedia(RestResource):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    filename = models.ImageField(upload_to='product_media')
-
-class VariantMedia(Media):
+    url = models.CharField(max_length = 1023)
+    
+class VariantMedia(RestResource):
     variant = models.ForeignKey(Variant, on_delete=models.CASCADE)
-    filename = models.ImageField(upload_to='variant_media')
+    url = models.CharField(max_length = 1023)

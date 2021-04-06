@@ -28,3 +28,9 @@ class Command(BaseCommand):
                     price_in_cents = int(float(variant["price"])* 100),
                     product = native_product,
                 )
+                for image in foreign_product["images"]:
+                    native_product_media = models.ProductMedia.objects.create(
+                        product = native_product,
+                        url = image["src"]
+                    )
+            print(native_product.handle)
