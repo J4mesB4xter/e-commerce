@@ -2,13 +2,16 @@
 {% block title %} {{ product.title }} {% endblock %}
 
 {% block content %}
-    <p>{{ product.handle }}</p>
-    {% autoescape off %}
-    {{ product.description }}
-    {% endautoescape %}
+    <h1 class="text-4xl font-bold m-3">{{ title_prefix }}</h1>
+    <p class="text-2xl font-serif gray-500 m-3">{{ title_suffix }}</p>
+    <!-- product scroller (7-11) -->
     <div class="w-full flex snap overflow-scroll">
         {% for image in images %}
         <img class="child w-full snap-start" src= "{{ image.url }}" alt="whoopsie">
         {% endfor %}
     </div>
+
+    {% autoescape off %}
+    <div class="font-serif m-4">{{ product.description }}</div>
+    {% endautoescape %}
 {% endblock %}

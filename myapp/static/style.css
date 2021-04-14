@@ -1,3 +1,7 @@
+html {
+    font-size: 40px;
+}
+
 .snap { 
     scroll-snap-type: both mandatory;
 }
