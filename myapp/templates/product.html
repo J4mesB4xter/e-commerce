@@ -1,15 +1,14 @@
-<html>
-<head>
-    <h1>{{ product.title }}</h1>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %} {{ product.title }} {% endblock %}
+
+{% block content %}
     <p>{{ product.handle }}</p>
-    <p>{{ product.description }}</p>
-    {% if images %}
+    {% autoescape off %}
+    {{ product.description }}
+    {% endautoescape %}
+    <div class="container max-w-xs">
         {% for image in images %}
-        <img src= "{{ image.url }}" alt="whoopsie">
+        <img class="child" src= "{{ image.url }}" alt="whoopsie">
         {% endfor %}
-        {% endif %}
-</body>
-    
-</html>
+    </div>
+{% endblock %}
