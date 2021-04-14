@@ -6,9 +6,9 @@
     {% autoescape off %}
     {{ product.description }}
     {% endautoescape %}
-    <div class="w-full flex">
+    <div class="w-full flex snap overflow-scroll">
         {% for image in images %}
-        <img class="child w-full" src= "{{ image.url }}" alt="whoopsie">
+        <img class="child w-full snap-start" src= "{{ image.url }}" alt="whoopsie">
         {% endfor %}
     </div>
 {% endblock %}
