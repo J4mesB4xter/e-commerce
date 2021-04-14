@@ -6,11 +6,11 @@ from django.http import HttpResponse
 def product_page(request, handle):
     # try:
     product = models.Product.objects.get(handle=handle)
-    image = models.ProductMedia.objects.select_related("product")[product.id-1].url
+    images = models.ProductMedia.objects.filter(product=product)
     template = loader.get_template("product.html")
     context = {
         "product" : product,
-        "image" : image
+        "images" : images
     }
     return HttpResponse(template.render(context, request))
     # except:

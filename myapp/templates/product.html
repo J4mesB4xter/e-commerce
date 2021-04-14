@@ -5,7 +5,11 @@
 <body>
     <p>{{ product.handle }}</p>
     <p>{{ product.description }}</p>
-    <img src= {{ image }} alt="whoopsie">  
+    {% if images %}
+        {% for image in images %}
+        <img src= "{{ image.url }}" alt="whoopsie">
+        {% endfor %}
+        {% endif %}
 </body>
     
 </html>
