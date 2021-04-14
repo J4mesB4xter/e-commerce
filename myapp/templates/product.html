@@ -6,9 +6,9 @@
     {% autoescape off %}
     {{ product.description }}
     {% endautoescape %}
-    <div class="container max-w-xs">
+    <div class="w-full flex">
         {% for image in images %}
-        <img class="child" src= "{{ image.url }}" alt="whoopsie">
+        <img class="child w-full" src= "{{ image.url }}" alt="whoopsie">
         {% endfor %}
     </div>
 {% endblock %}
