@@ -1,2 +1,3 @@
-function variantProduction():
-  let x = document.getElementById("variantbutton")
+function makeButtons() {
+  let x = document.querySelector("button")
+}
