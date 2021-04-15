@@ -24,7 +24,6 @@ def product_page(request, handle):
         }
         return HttpResponse(template.render(context, request))
     except Exception as e:
-        raise e
         template = loader.get_template("404.html")
         return HttpResponse(template.render({}, request))
         

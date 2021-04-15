@@ -4,7 +4,7 @@
 {% block content %}
     <h1 class="text-4xl font-bold m-3">{{ title_prefix }}</h1>
     <p class="text-2xl font-serif text-gray-600 m-3 mb-2">{{ title_suffix }}</p>
-    <p class="text-2xl font-serif text-gray-600 mx-3">{{ price }} </p>
+    <p class="text-2xl text-black mx-3">{{ price }} </p>
     <!-- product scroller (7-11) -->
     <div class="w-full flex snap overflow-scroll">
         {% for image in images %}
@@ -16,3 +16,4 @@
     <div class="font-serif m-4">{{ product.description }}</div>
     {% endautoescape %}    
 {% endblock %}
+<script src="yourscript.js"></script>
