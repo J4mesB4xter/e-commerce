@@ -16,8 +16,10 @@
     <div class="font-serif m-4">{{ product.description }}</div>
     {% endautoescape %}
     {% for i in related_products%}
+    <a href="http://127.0.0.1:8000/product/{{ i.handle }}">
     <button class= "button bg-transparent font-semibold py-2 px-4 border border-gray-500" 
-    onclick="../views.product_page(request, i.innertext)">{{ i.title }}</button>
+    onclick="/myapp/views.product_page(request, i.innertext)">{{ i.title }}</button>
+    </a>
     {% endfor %}   
 {% endblock %}
-<script src="yourscript.js"></script>
+<script src="./myapp/views.py"></script>
