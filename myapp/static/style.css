@@ -9,3 +9,8 @@ html {
 .snap-start {
     scroll-snap-align: start;
 }
+
+.button {
+    font: serif;
+    font-size: 4px;
+}
